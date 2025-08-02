@@ -6,40 +6,47 @@
 using namespace std;
 
 struct Node {
-    string task; 
+    int studNum;
+    string lastName;
+    string firstName;
+    string course;
     Node* next;
 };
 
+Node* n;
+Node* head = NULL;
 
-
-void addTask();
-void delTask();
-void viewTask();
-void sortTask();
+void addStudent();
+void delStudent();
+void viewStudent();
+void sortStudents();
 
 int main() {
+
 
     int choice;
     cout << "Welcome to Task Maker!" << endl;
     cout << "Please choose below: " << endl;
 
-    string arrmenu[5] = {"Add Task", "Delete Task", "View Task", "Sort Task", "Exit"}, ;
+    string arrmenu[5] = {"Add Student", "Delete Student", "View Student", "Sort Student", "Exit"};
     for (int i = 0; i < 4; i++) {
         cout << i + 1 << ". " << arrmenu[i] << endl;
     }
+    cout << "Your choice: " << choice;
+    switch(choice) { 
 
-    switch(choice) {
-        case 1: 
-            addTask();
+        case 1:
+            
+            addStudent();
             break;
         case 2:      
-            delTask();
+            delStudent();
             break;
         case 3: 
-            viewTask();
+            viewStudent();
             break;
         case 4:
-            sortTask();
+            sortStudent();
             break;  
             
         case 5:
@@ -49,18 +56,43 @@ int main() {
             cout << "Invalid choice. Please try again." << endl;
     }
 }
- void addTask() {
+ void addStudent() {
 
+    Node* newNode = new Node; //set new node
+    cout << "== Enter Student Details ==" << endl;
+            cin >> n->studNum;
+            cout << "First Name: ";
+            cin >> n-> firstName;
+            cout << "Last Name: ";
+            cin >> n -> lastName;
+            cout << "Course: ";
+            cin >> n-> course;
+    newNode -> next = NULL; //stop node
+
+    //placing the node
+
+    //if head is empty, head is the newly added node
+    //if not, while the head -> next is not empty, head is the next node;
+    //then head -> next is the newNode;
+    if (head == NULL) {
+        head = newNode;
+    } else { 
+        Node* temp;
+        while (temp-> next != NULL) {
+            temp = temp->next;
+        }
+        temp-> next = newNode;
+    }
+    cout << "Student added successfully!" << endl; 
+ }
+
+ void delStudent(){
 
  }
 
- void delTask(){
+ void viewStudent() {
 
  }
 
- void viewTask() {
-
- }
-
- void sortTask(){
+ void sortStudent(){
  }
