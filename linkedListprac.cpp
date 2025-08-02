@@ -87,7 +87,19 @@ int main() {
  }
 
  void delStudent(){
+    int searchId;
+    cout << "Enter student ID to delete: ";
+    cin >> searchId;
+ 
+    //check if nodes are empty
+    if (head == NULL) {
+        cout << "List is empty!" << endl;
+        return;
+    }
 
+    if (head -> studNum == searchId) {
+        
+    }
  }
 
  void viewStudent() {
