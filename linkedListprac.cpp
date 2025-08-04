@@ -150,3 +150,14 @@ int main() {
         temp = temp->next;
     }
  }
+
+// comprehensive steps to different linked list functions
+
+/*
+        1. Check if nodes exist and head node is not empty
+        2. set pointers depending on the function
+            - temp for temp nodes to use for basic traversal
+            - newNode for adding
+            - prev and current when deleting a node
+        3. traverse using while loops
+*/
