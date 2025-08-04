@@ -46,7 +46,7 @@ int main() {
             viewStudent();
             break;
         case 4:
-            sortStudent();
+            sortStudents();
             break;  
             
         case 5:
@@ -97,10 +97,39 @@ int main() {
         return;
     }
 
+    //if the head is the node to be deleted
+
     if (head -> studNum == searchId) {
-        
+        Node* temp = head; //setting up the node to delete
+        head = head -> next; //moving the pointer
+        delete temp; //the node deleted;
+        cout << "Student deleted successfully!";
+        return;
     }
- }
+
+    Node* prev = head; // set previous to head
+    Node * current = head -> next; //set the next node to the next node of prev/head 
+
+    //while current is not empty and the searchId is not in current node, previous is current and current is the next node of prev
+    //this while loop is for traversing the list 
+    while(current != NULL && current->studNum != searchId ) {
+        prev = current;
+        current = current->next;
+    }
+
+
+    if (current == NULL) {
+        cout << "Student not found!" << endl;
+        return;
+    }
+
+    prev->next = current-> next;
+    delete current;
+    cout << "Student deleted successfully!" << endl;
+    }
+    
+
+ 
 
  void viewStudent() {
 
