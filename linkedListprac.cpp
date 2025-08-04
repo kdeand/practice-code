@@ -2,7 +2,8 @@
 #include <string>
 
 
-//just a simple task list
+//just a simple delete and add list
+
 using namespace std;
 
 struct Node {
@@ -19,7 +20,6 @@ Node* head = NULL;
 void addStudent();
 void delStudent();
 void viewStudent();
-void sortStudents();
 
 int main() {
 
@@ -28,11 +28,13 @@ int main() {
     cout << "Welcome to Task Maker!" << endl;
     cout << "Please choose below: " << endl;
 
-    string arrmenu[5] = {"Add Student", "Delete Student", "View Student", "Sort Student", "Exit"};
+    string arrmenu[4] = {"Add Student", "Delete Student", "View Student", "Exit"};
     for (int i = 0; i < 4; i++) {
         cout << i + 1 << ". " << arrmenu[i] << endl;
     }
-    cout << "Your choice: " << choice;
+    
+    cout << "Your choice: ";
+    cin >> choice;
     switch(choice) { 
 
         case 1:
@@ -46,10 +48,6 @@ int main() {
             viewStudent();
             break;
         case 4:
-            sortStudents();
-            break;  
-            
-        case 5:
             cout << "Exiting the program." << endl;
             return 0;
         default:
@@ -78,10 +76,11 @@ int main() {
         head = newNode;
     } else { 
         Node* temp;
+        //the while loop is used to traverse the list
         while (temp-> next != NULL) {
             temp = temp->next;
         }
-        temp-> next = newNode;
+        temp->next = newNode; 
     }
     cout << "Student added successfully!" << endl; 
  }
@@ -117,23 +116,37 @@ int main() {
         current = current->next;
     }
 
-
+//if current is empty, student is not found
     if (current == NULL) {
         cout << "Student not found!" << endl;
         return;
     }
 
-    prev->next = current-> next;
+    //apparently removes the current node from the linked list so the current node can be deleted
+    //the "prev" node next points to the current node's next node which skips the current node to be deleted
+    //this way, the list doesn't break when current is deleted 
+    prev->next = current-> next; 
     delete current;
     cout << "Student deleted successfully!" << endl;
     }
     
-
- 
-
  void viewStudent() {
 
- }
+    //check if nodes exist
+    if(head == NULL)  {
+        cout << "No students in the list.";
+        return;
+    }
 
- void sortStudent(){
+    //just traverse and print
+    //remember that the while loop is used for the traversal
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << "Student Number: " << temp->studNum << endl;
+        cout << "First Name: " << temp->firstName << endl;
+        cout << "Last Name: " << temp->lastName << endl;
+        cout << "Course: " << temp->course << endl;
+        cout << "------------------------" << endl;
+        temp = temp->next;
+    }
  }
